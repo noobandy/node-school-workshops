@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>websocket</title>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.0/socket.io.js"></script>
+<script>
+	(function (window) {
+		window.run = function () {
+			console.log('running....')
+			var socket = io('http://localhost:8099')
+			socket.on('message', function (data) {
+				console.log(data);
+				socket.emit('my other event', { my: 'data' })
+			})
+		}
+	})(window)
+
+	window.onload = run
+</script>
+</body>
+</html>
