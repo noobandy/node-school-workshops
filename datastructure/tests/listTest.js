@@ -9,19 +9,19 @@ describe('list', function () {
 	describe('#isEmpty', function () {
 		const myList = list()
 		it('should return true for newly created list', function () {
-			assert.equal(myList.isEmpty(), true)
+			assert.isTrue(myList.isEmpty())
 		})
 
 		it('should return false if there is any item in list', function () {
 			myList.add(1)
 
-			assert.equal(myList.isEmpty(), false)
+			assert.isFalse(myList.isEmpty())
 		})
 
-		it('should return false if there is no item in list', function () {
-			myList.remove(1)
+		it('should return true if there is no item in list', function () {
+			myList.remove(0)
 
-			assert.equal(myList.isEmpty(), false)
+			assert.isTrue(myList.isEmpty())
 		})
 	})
 
@@ -59,7 +59,7 @@ describe('list', function () {
 
 	describe('#contains', function () {
 		const myList = list()
-		it('should add return true when item is present in list', function () {
+		it('should return true when item is present in list', function () {
 			myList.add(1)
 
 			assert.isTrue(myList.contains(1))
@@ -69,7 +69,7 @@ describe('list', function () {
 			}))
 		})
 
-		it('should add return false when item is not present in list', function () {
+		it('should return false when item is not present in list', function () {
 
 			assert.isFalse(myList.contains(2))
 
