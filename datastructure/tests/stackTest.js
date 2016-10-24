@@ -44,15 +44,15 @@ describe('stack', function () {
 			myStack.push(1)
 			myStack.push(2)
 			myStack.pop()
-			assert.isTrue(myStack.isFull())
+			assert.isFalse(myStack.isFull())
 		})
 	})
 
-	describe('#size', function () {
-		it('should return the size of the stack', function () {
+	describe('#capacity', function () {
+		it('should return the capacity of the stack', function () {
 			var myStack = stack(10)
 
-			assert.equal(10, myStack.size())
+			assert.equal(10, myStack.capacity())
 		})
 	})
 
