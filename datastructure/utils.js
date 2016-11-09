@@ -35,12 +35,53 @@ const insertionSort = function (arr, compare) {
 }
 
 const mergeSort = function (arr, compare) {
+	if(arr.length > 0) {
+		mergeAux(arr, 0, arr.length - 1)
+	}
+}
+
+const mergeAux = function (arr, low, high) {
+	if(low == high) {
+		return arr
+	}
+
+	let mid = Math.floor((low + high) / 2)
+
+	mergeAux(arr, low, mid)
+	mergeAux(arr, mid + 1, high)
+
+	let left = low
+	let right = mid + 1
+	let i = 0
+	let temp = []
+
+	while(left <= mid && right <= high) {
+		if(arr[left] <= arr[right]) {
+			temp[i++] = arr[left++]
+		} else {
+			temp[i++] = arr[right++]
+		}
+	}
+
+	while(left <= mid) {
+		temp[i++] = arr[left++]
+	}
+
+	while(right <= high) {
+		temp[i++] = arr[right++]
+	}
+
+	//copy
+
+	for(let j = low; j <= high; j++) {
+		arr[j] = temp[j - low]
+	}
+}
+
+const quickSort = function (arr, compare) {
 
 }
 
-const quickSort = function(arr, compare) {
-
-}
 
 module.exports.selectionSort = selectionSort
 module.exports.insertionSort = insertionSort
